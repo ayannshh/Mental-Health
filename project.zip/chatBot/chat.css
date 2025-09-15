@@ -1,0 +1,170 @@
+:root {
+    --color-white: rgba(255, 255, 255, 1);
+    --color-black: rgba(0, 0, 0, 1);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FFFFFF;
+    color: #0F0F0F;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Header */
+  .header-btn {
+    background-color: #F1F1F2;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+  }
+  .header-btn:hover {
+    background-color: #E4E4E5;
+  }
+  
+  /* Hero */
+  .hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background-color: #FCFCF9;
+  }
+  
+  /* Aurora Glow */
+  .aurora-container {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 80vw; height: 80vh;
+    z-index: 0; pointer-events: none;
+  }
+  .aurora-glow {
+    position: absolute; border-radius: 9999px; opacity: 0.2; filter: blur(120px);
+  }
+  .aurora-glow.one {
+    width: 600px; height: 600px; background: rgba(0, 0, 0, 0.5);
+    top: 10%; left: 10%;
+    animation: moveGlowOne 20s ease-in-out infinite alternate;
+  }
+  .aurora-glow.two {
+    width: 500px; height: 500px; background: rgba(80, 80, 80, 0.3);
+    bottom: 10%; right: 10%;
+    animation: moveGlowTwo 25s ease-in-out infinite alternate;
+  }
+  @keyframes moveGlowOne {
+    to { transform: translate(100px, 50px) scale(1.2) rotate(15deg); }
+  }
+  @keyframes moveGlowTwo {
+    to { transform: translate(-80px, -60px) scale(0.8) rotate(-15deg); }
+  }
+  
+  /* Hero Content Animation */
+  .hero-content {
+    opacity: 0; transform: translateY(50px);
+    animation: slideUp 1.2s ease-out 0.5s forwards;
+    position: relative; z-index: 1;
+  }
+  @keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Chat Box */
+  .chat-container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  .chat-header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+    color: white;
+  }
+  .chat-messages {
+    height: 550px;
+    overflow-y: auto;
+  }
+  .chat-messages::-webkit-scrollbar { width: 6px; }
+  .chat-messages::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+  .chat-messages::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 10px; }
+  
+  /* Messages */
+  .message { animation: messageSlide 0.6s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
+  @keyframes messageSlide {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .message-text { line-height: 1.6; }
+  .user-message .message-bubble {
+    background: linear-gradient(135deg, #000000 0%, #434343 100%);
+    color: white;
+    border-radius: 20px 20px 6px 20px;
+  }
+  .bot-message .message-bubble {
+    background: linear-gradient(to bottom right, #FFFFFF, #F9FAFB);
+    color: #000000;
+    border-radius: 20px 20px 20px 6px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  
+  /* Copy Button */
+  .copy-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    right: 0.25rem;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 99px;
+    padding: 4px;
+    opacity: 0;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .user-message:hover .copy-btn,
+  .bot-message:hover .copy-btn {
+    opacity: 1;
+  }
+  .copy-btn svg {
+    width: 16px;
+    height: 16px;
+    color: #444;
+  }
+  .copy-btn:hover {
+    background-color: rgba(0,0,0,0.2);
+  }
+  
+  /* Feature Cards */
+  .feature-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid #eaeaea;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+  
+  /* Reveal Animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Progress Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Notification System -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- Emergency Support Button (Always Visible) -->
+    <div class="emergency-support">
+        <button class="emergency-btn" id="emergencyBtn">🆘 Emergency Support</button>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="dashboard-header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <h1 class="brand-title">MindCare Progress</h1>
+            </div>
+            <div class="nav-pills">
+                <a href="#overview" class="nav-pill nav-pill--active">Overview</a>
+                <a href="#checkin" class="nav-pill">Daily Check-in</a>
+                <a href="#assessments" class="nav-pill">Assessments</a>
+                <a href="#music" class="nav-pill">Music Therapy</a>
+                <a href="#community" class="nav-pill">Community</a>
+                <a href="#tools" class="nav-pill">Tools</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Overview Section -->
+    <section class="dashboard-overview" id="overview">
+        <div class="container">
+            <div class="welcome-section">
+                <h2 class="welcome-title">Welcome Back!</h2>
+                <p class="welcome-subtitle">Here's your mental health journey progress</p>
+            </div>
+
+            <!-- Main Progress Section -->
+            <div class="progress-main">
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <h3>Overall Mental Health Score</h3>
+                        <div class="progress-score" id="progressScore">72</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 72%"></div>
+                        </div>
+                        <div class="progress-labels">
+                            <span>Poor</span>
+                            <span>Fair</span>
+                            <span>Good</span>
+                            <span>Excellent</span>
+                        </div>
+                    </div>
+                    <div class="progress-details">
+                        <div class="stat-item">
+                            <div class="stat-number">+8</div>
+                            <div class="stat-label">Weekly Improvement</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Day Streak</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Milestones</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats Grid -->
+            <div class="quick-stats-grid">
+                <div class="quick-stat-card">
+                    <div class="stat-icon">😊</div>
+                    <div class="stat-title">Current Level</div>
+                    <div class="stat-value">Making Progress</div>
+                </div>
+                <div class="quick-stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-title">This Week</div>
+                    <div class="stat-value">Improving</div>
+                </div>
+                <div class="quick-stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-title">Next Goal</div>
+                    <div class="stat-value">75 Score</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Check-in Section -->
+    <section class="daily-checkin" id="checkin">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Daily Check-in</h2>
+                <p class="section-subtitle">Help our AI understand how you're feeling today</p>
+            </div>
+
+            <div class="checkin-form" id="checkinForm">
+                <div class="question-card active" data-question="0">
+                    <h3 class="question-text">How are you feeling today overall?</h3>
+                    <div class="answer-options">
+                        <button class="answer-btn" data-value="1">Very Poor</button>
+                        <button class="answer-btn" data-value="2">Poor</button>
+                        <button class="answer-btn" data-value="3">Fair</button>
+                        <button class="answer-btn" data-value="4">Good</button>
+                        <button class="answer-btn" data-value="5">Excellent</button>
+                    </div>
+                </div>
+
+                <div class="question-card" data-question="1">
+                    <h3 class="question-text">How well did you sleep last night?</h3>
+                    <div class="answer-options">
+                        <button class="answer-btn" data-value="1">Very Poor</button>
+                        <button class="answer-btn" data-value="2">Poor</button>
+                        <button class="answer-btn" data-value="3">Fair</button>
+                        <button class="answer-btn" data-value="4">Good</button>
+                        <button class="answer-btn" data-value="5">Excellent</button>
+                    </div>
+                </div>
+
+                <div class="question-card" data-question="2">
+                    <h3 class="question-text">Have you felt anxious or worried today?</h3>
+                    <div class="answer-options">
+                        <button class="answer-btn" data-value="4">Not at all</button>
+                        <button class="answer-btn" data-value="3">Several days</button>
+                        <button class="answer-btn" data-value="2">More than half</button>
+                        <button class="answer-btn" data-value="1">Nearly every day</button>
+                    </div>
+                </div>
+
+                <div class="question-navigation">
+                    <button class="nav-btn" id="prevQuestion" disabled>Previous</button>
+                    <div class="question-progress">
+                        <span id="currentQuestion">1</span> of <span id="totalQuestions">3</span>
+                    </div>
+                    <button class="nav-btn" id="nextQuestion">Next</button>
+                </div>
+            </div>
+
+            <div class="checkin-complete hidden" id="checkinComplete">
+                <div class="complete-icon">✅</div>
+                <h3>Check-in Complete!</h3>
+                <p>Your responses have been recorded and your progress has been updated.</p>
+                <button class="btn-primary" id="viewProgress">View Updated Progress</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Tests Section -->
+    <section class="assessments" id="assessments">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mental Health Assessments</h2>
+                <p class="section-subtitle">Professional standardized tests to track your mental health</p>
+            </div>
+
+            <div class="assessments-grid">
+                <div class="assessment-card">
+                    <div class="assessment-header">
+                        <h3>PHQ-9 Depression Scale</h3>
+                        <div class="assessment-status mild">Mild</div>
+                    </div>
+                    <p class="assessment-description">Standardized depression assessment</p>
+                    <div class="assessment-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span class="detail-value">5 minutes</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Last taken:</span>
+                            <span class="detail-value">3 days ago</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Score:</span>
+                            <span class="detail-value">8/27</span>
+                        </div>
+                    </div>
+                    <button class="assessment-btn">Retake Assessment</button>
+                </div>
+
+                <div class="assessment-card">
+                    <div class="assessment-header">
+                        <h3>GAD-7 Anxiety Scale</h3>
+                        <div class="assessment-status mild">Mild</div>
+                    </div>
+                    <p class="assessment-description">Generalized anxiety disorder assessment</p>
+                    <div class="assessment-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span class="detail-value">3 minutes</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Last taken:</span>
+                            <span class="detail-value">1 week ago</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Score:</span>
+                            <span class="detail-value">6/21</span>
+                        </div>
+                    </div>
+                    <button class="assessment-btn">Retake Assessment</button>
+                </div>
+
+                <div class="assessment-card">
+                    <div class="assessment-header">
+                        <h3>Stress Level Assessment</h3>
+                        <div class="assessment-status moderate">Moderate</div>
+                    </div>
+                    <p class="assessment-description">Current stress and coping evaluation</p>
+                    <div class="assessment-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span class="detail-value">4 minutes</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Last taken:</span>
+                            <span class="detail-value">2 days ago</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Score:</span>
+                            <span class="detail-value">12/40</span>
+                        </div>
+                    </div>
+                    <button class="assessment-btn">Retake Assessment</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Therapy Section -->
+    <section class="music-therapy" id="music">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Music Therapy</h2>
+                <p class="section-subtitle">Calming sounds and music to support your mental wellness</p>
+            </div>
+
+            <div class="music-player" id="musicPlayer">
+                <div class="player-header">
+                    <div class="now-playing">
+                        <div class="track-info">
+                            <div class="track-title">Calm & Relaxed Playlist</div>
+                            <div class="track-artist">Nature Sounds Collection</div>
+                        </div>
+                    </div>
+                    <div class="player-controls">
+                        <button class="control-btn" id="prevTrack">⏮️</button>
+                        <button class="control-btn play-btn" id="playPause">▶️</button>
+                        <button class="control-btn" id="nextTrack">⏭️</button>
+                    </div>
+                </div>
+                <div class="progress-track">
+                    <div class="track-progress" id="trackProgress"></div>
+                </div>
+            </div>
+
+            <div class="playlists-grid">
+                <div class="playlist-card" data-mood="relaxation">
+                    <div class="playlist-icon">🧘</div>
+                    <div class="playlist-info">
+                        <h3>Calm & Relaxed</h3>
+                        <p>24 tracks • 2 hours</p>
+                    </div>
+                    <button class="play-playlist-btn">Play</button>
+                </div>
+
+                <div class="playlist-card" data-mood="focus">
+                    <div class="playlist-icon">🎯</div>
+                    <div class="playlist-info">
+                        <h3>Focus & Concentration</h3>
+                        <p>18 tracks • 90 minutes</p>
+                    </div>
+                    <button class="play-playlist-btn">Play</button>
+                </div>
+
+                <div class="playlist-card" data-mood="sleep">
+                    <div class="playlist-icon">😴</div>
+                    <div class="playlist-info">
+                        <h3>Sleep & Rest</h3>
+                        <p>15 tracks • 8 hours</p>
+                    </div>
+                    <button class="play-playlist-btn">Play</button>
+                </div>
+
+                <div class="playlist-card" data-mood="meditation">
+                    <div class="playlist-icon">🕉️</div>
+                    <div class="playlist-info">
+                        <h3>Meditation Sounds</h3>
+                        <p>12 tracks • 45 minutes</p>
+                    </div>
+                    <button class="play-playlist-btn">Play</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Community Support</h2>
+                <p class="section-subtitle">Connect with others on similar mental health journeys</p>
+            </div>
+
+            <div class="community-grid">
+                <div class="community-feed">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">❓</div>
+                            <div class="activity-content">
+                                <div class="activity-author">Anonymous User</div>
+                                <div class="activity-text">How do you deal with anxiety before important events?</div>
+                                <div class="activity-meta">23 responses • 2 hours ago</div>
+                            </div>
+                            <button class="activity-btn">Join Discussion</button>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">💬</div>
+                            <div class="activity-content">
+                                <div class="activity-author">Community Member</div>
+                                <div class="activity-text">Remember that small steps forward are still progress!</div>
+                                <div class="activity-meta">15 likes • 4 hours ago</div>
+                            </div>
+                            <button class="activity-btn">Like</button>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">👥</div>
+                            <div class="activity-content">
+                                <div class="activity-author">Evening Mindfulness Group</div>
+                                <div class="activity-text">Group session starting soon</div>
+                                <div class="activity-meta">12 participants • 7:00 PM today</div>
+                            </div>
+                            <button class="activity-btn">Join Session</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="community-actions">
+                    <h3>Community Actions</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn">📝 Ask a Question</button>
+                        <button class="action-btn">💭 Share Experience</button>
+                        <button class="action-btn">👥 Join Group Chat</button>
+                        <button class="action-btn">🎯 Create Support Goal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Tools Section -->
+    <section class="personal-tools" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Personal Wellness Tools</h2>
+                <p class="section-subtitle">Additional resources to support your mental health journey</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">📝</div>
+                    <h3>Daily Journal</h3>
+                    <p>Write down your thoughts and feelings</p>
+                    <button class="tool-btn">Open Journal</button>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🫁</div>
+                    <h3>Breathing Exercises</h3>
+                    <p>Guided breathing for relaxation</p>
+                    <button class="tool-btn">Start Exercise</button>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🎯</div>
+                    <h3>Goal Setting</h3>
+                    <p>Set and track your wellness goals</p>
+                    <button class="tool-btn">Set Goals</button>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🙏</div>
+                    <h3>Gratitude Journal</h3>
+                    <p>Practice daily gratitude</p>
+                    <button class="tool-btn">Write Gratitude</button>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">💊</div>
+                    <h3>Medication Reminders</h3>
+                    <p>Never miss your medication</p>
+                    <button class="tool-btn">Set Reminders</button>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🌅</div>
+                    <h3>Daily Affirmations</h3>
+                    <p>Positive affirmations for today</p>
+                    <button class="tool-btn">View Affirmations</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breathing Exercise Modal -->
+    <div class="modal hidden" id="breathingModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeBreathing">×</button>
+            <h3>Breathing Exercise</h3>
+            <div class="breathing-circle" id="breathingCircle">
+                <div class="breathing-text" id="breathingText">Click to Start</div>
+            </div>
+            <div class="breathing-controls">
+                <button class="btn-primary" id="startBreathing">Start Exercise</button>
+                <button class="btn-secondary" id="stopBreathing">Stop</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Support Modal -->
+    <div class="modal hidden" id="emergencyModal">
+        <div class="modal-content emergency-content">
+            <button class="modal-close" id="closeEmergency">×</button>
+            <h3>🆘 Emergency Support</h3>
+            <p>If you're in crisis or having thoughts of self-harm, please reach out for help immediately.</p>
+            <div class="emergency-options">
+                <div class="emergency-item">
+                    <strong>National Suicide Prevention Lifeline (US)</strong>
+                    <p>Call: 988</p>
+                    <button class="emergency-call-btn">Call Now</button>
+                </div>
+                <div class="emergency-item">
+                    <strong>Crisis Text Line</strong>
+                    <p>Text HOME to 741741</p>
+                    <button class="emergency-call-btn">Text Now</button>
+                </div>
+                <div class="emergency-item">
+                    <strong>Emergency Services</strong>
+                    <p>Call: 911</p>
+                    <button class="emergency-call-btn">Call 911</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

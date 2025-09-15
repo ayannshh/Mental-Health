@@ -1,0 +1,74 @@
+:root {
+    --color-bg: #F7FAFC;
+    --color-bg-white: #FFFFFF;
+    --color-accent-teal: #A0E7E5; 
+    --color-accent-teal-dark: #4FD1C5;
+    --color-accent-pink: #FEE2E2;
+    --color-text-dark: #1A202C;
+    --color-text-light: #4A5568;
+    --color-border: #E2E8F0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text-dark);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Animated Aurora Background */
+.aurora-background {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    background: var(--color-bg-blue);
+}
+.aurora-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.5;
+}
+.aurora-blob.one {
+    width: 500px; height: 500px;
+    background: var(--color-accent-teal);
+    top: -20%; left: -10%;
+    animation: move-blob-one 20s ease-in-out infinite alternate;
+}
+.aurora-blob.two {
+    width: 600px; height: 600px;
+    background: var(--color-accent-pink);
+    bottom: -30%; right: -20%;
+    animation: move-blob-two 25s ease-in-out infinite alternate;
+}
+@keyframes move-blob-one {
+    to { transform: translate(200px, 100px) scale(1.2); }
+}
+@keyframes move-blob-two {
+    to { transform: translate(-150px, -50px) scale(0.8); }
+}
+
+/* Form Animation Classes */
+.form-container {
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+.form-container.fade-out {
+    opacity: 0;
+    transform: scale(0.98);
+}
+.form-container.hidden {
+    display: none;
+}
+
+.auth-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: card-fade-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+@keyframes card-fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
