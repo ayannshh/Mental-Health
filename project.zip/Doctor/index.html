@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav  class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <!-- <p href = "../main.html">MindEase</p> -->
+                <a href="../main.html">MindEase</a>
+               
+            </div>
+            
+            <div class="nav-menu">
+                <button class="nav-item active" data-section="home">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Home</span>
+                </button>
+                <button class="nav-item" data-section="doctors">
+                    <span class="nav-icon">👩‍⚕️</span>
+                    <span class="nav-text">Doctors</span>
+                </button>
+                <button class="nav-item" data-section="appointments">
+                    <span class="nav-icon">📅</span>
+                    <span class="nav-text">Appointments</span>
+                </button>
+                <button class="nav-item" data-section="dashboard">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </button>
+                <button class="nav-item" data-section="tools">
+                    <span class="nav-icon">🛠️</span>
+                    <span class="nav-text">Tools</span>
+                </button>
+                <button class="nav-item" data-section="messages">
+                    <span class="nav-icon">💬</span>
+                    <span class="nav-text">Messages</span>
+                </button>
+            </div>
+
+            <div class="nav-profile">
+                <div class="profile-avatar">😊</div>
+                <div class="profile-info">
+                    <span class="profile-name">Alex Johnson</span>
+                    <span class="profile-status">Patient</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section home-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Your Mental Health Journey Starts Here</h1>
+                        <p class="hero-subtitle">Connect with expert mental health professionals, track your progress, and access comprehensive wellness tools in one premium platform.</p>
+                        <div class="hero-actions">
+                            <button class="btn btn--primary btn--lg" onclick="app.navigateToSection('doctors')">Find a Doctor</button>
+                            <button class="btn btn--outline btn--lg" onclick="app.navigateToSection('tools')">Explore Tools</button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-card card-1">
+                            <span class="card-icon">🧘‍♀️</span>
+                            <span class="card-text">Meditation</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <span class="card-icon">👩‍⚕️</span>
+                            <span class="card-text">Expert Care</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <span class="card-icon">📊</span>
+                            <span class="card-text">Progress Tracking</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Patients Helped</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Expert Doctors</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doctors Section -->
+        <section id="doctors" class="section doctors-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Find Your Perfect Mental Health Professional</h2>
+                    <p class="section-subtitle">Browse our network of experienced and licensed therapists and psychiatrists</p>
+                </div>
+
+                <div class="doctors-filters">
+                    <div class="filter-group">
+                        <label class="filter-label">Specialty</label>
+                        <select class="form-control filter-select" id="specialtyFilter">
+                            <option value="">All Specialties</option>
+                            <option value="anxiety">Anxiety & Depression</option>
+                            <option value="trauma">Trauma & PTSD</option>
+                            <option value="family">Family Therapy</option>
+                            <option value="teen">Teen Counseling</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Language</label>
+                        <select class="form-control filter-select" id="languageFilter">
+                            <option value="">All Languages</option>
+                            <option value="english">English</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="mandarin">Mandarin</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Availability</label>
+                        <select class="form-control filter-select" id="availabilityFilter">
+                            <option value="">Any Time</option>
+                            <option value="today">Available Today</option>
+                            <option value="tomorrow">Available Tomorrow</option>
+                            <option value="week">This Week</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="doctors-grid" id="doctorsGrid">
+                    <!-- Doctors will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments" class="section appointments-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Manage Your Appointments</h2>
+                    <p class="section-subtitle">Schedule, reschedule, or join your mental health sessions</p>
+                </div>
+
+                <div class="appointments-container">
+                    <div class="upcoming-appointments">
+                        <h3>Upcoming Sessions</h3>
+                        <div class="appointments-list" id="upcomingAppointments">
+                            <!-- Appointments will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="appointment-calendar">
+                        <h3>Schedule New Appointment</h3>
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button class="calendar-nav" id="prevMonth">‹</button>
+                                <h4 class="calendar-title" id="calendarTitle">November 2024</h4>
+                                <button class="calendar-nav" id="nextMonth">›</button>
+                            </div>
+                            <div class="calendar-grid" id="calendarGrid">
+                                <!-- Calendar will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section dashboard-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Your Wellness Dashboard</h2>
+                    <p class="section-subtitle">Track your progress and manage your mental health journey</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card mood-card">
+                        <div class="card-header">
+                            <h3>Weekly Mood Tracker</h3>
+                            <button class="btn btn--sm btn--outline" onclick="app.addMoodEntry()">Add Entry</button>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 250px;">
+                            <canvas id="moodChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card goals-card">
+                        <div class="card-header">
+                            <h3>Treatment Goals</h3>
+                        </div>
+                        <div class="goals-list" id="goalsList">
+                            <!-- Goals will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card medications-card">
+                        <div class="card-header">
+                            <h3>Current Medications</h3>
+                        </div>
+                        <div class="medications-list" id="medicationsList">
+                            <!-- Medications will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card progress-card">
+                        <div class="card-header">
+                            <h3>Overall Progress</h3>
+                        </div>
+                        <div class="progress-summary">
+                            <div class="progress-item">
+                                <span class="progress-label">Sessions Completed</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <span class="progress-value">12/16</span>
+                            </div>
+                            <div class="progress-item">
+                                <span class="progress-label">Goals Achieved</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                                <span class="progress-value">3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mental Health Tools Section -->
+        <section id="tools" class="section tools-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Mental Health Toolkit</h2>
+                    <p class="section-subtitle">Comprehensive resources to support your mental wellness journey</p>
+                </div>
+
+                <div class="tools-grid" id="toolsGrid">
+                    <!-- Tools will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section id="messages" class="section messages-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Secure Communication</h2>
+                    <p class="section-subtitle">Connect with your healthcare providers safely and securely</p>
+                </div>
+
+                <div class="messages-container">
+                    <div class="conversations-list">
+                        <h3>Your Conversations</h3>
+                        <div class="conversation-items" id="conversationsList">
+                            <!-- Conversations will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="chat-container">
+                        <div class="chat-header" id="chatHeader">
+                            <div class="chat-user-info">
+                                <div class="chat-avatar">👩‍⚕️</div>
+                                <div class="chat-details">
+                                    <span class="chat-name">Dr. Sarah Mitchell</span>
+                                    <span class="chat-status">Online</span>
+                                </div>
+                            </div>
+                            <button class="btn btn--sm btn--primary" onclick="app.startVideoCall()">📹 Start Video Call</button>
+                        </div>
+                        
+                        <div class="chat-messages" id="chatMessages">
+                            <!-- Messages will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="chat-input-container">
+                            <input type="text" class="form-control chat-input" id="messageInput" placeholder="Type your message...">
+                            <button class="btn btn--primary" onclick="app.sendMessage()">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <!-- Doctor Profile Modal -->
+    <div id="doctorModal" class="modal hidden">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3>Doctor Profile</h3>
+                <button class="close-btn" onclick="app.closeDoctorModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="doctorModalBody">
+                <!-- Doctor details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Book Appointment</h3>
+                <button class="close-btn" onclick="app.closeBookingModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-group">
+                        <label class="form-label">Doctor</label>
+                        <div class="selected-doctor" id="selectedDoctor"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Appointment Type</label>
+                        <select class="form-control" id="appointmentType" required>
+                            <option value="">Select Type</option>
+                            <option value="initial">Initial Consultation</option>
+                            <option value="followup">Follow-up Session</option>
+                            <option value="therapy">Therapy Session</option>
+                            <option value="medication">Medication Review</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Preferred Date & Time</label>
+                        <div class="datetime-picker" id="datetimePicker">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Notes (Optional)</label>
+                        <textarea class="form-control" id="appointmentNotes" rows="3" placeholder="Any specific concerns or topics you'd like to discuss..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn--secondary" onclick="app.closeBookingModal()">Cancel</button>
+                        <button type="submit" class="btn btn--primary">Book Appointment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Modal -->
+    <div id="toolModal" class="modal hidden">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="toolModalTitle">Mental Health Tool</h3>
+                <button class="close-btn" onclick="app.closeToolModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="toolModalBody">
+                <!-- Tool content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Support Modal -->
+    <div id="emergencyModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header crisis-header">
+                <h3>🆘 Crisis Support</h3>
+                <button class="close-btn" onclick="app.closeEmergencyModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="emergency-content">
+                    <p><strong>If you're having thoughts of self-harm or suicide, please reach out for help immediately:</strong></p>
+                    <div class="emergency-contacts">
+                        <div class="emergency-item">
+                            <strong>National Suicide Prevention Lifeline</strong>
+                            <a href="tel:988" class="emergency-link">988</a>
+                        </div>
+                        <div class="emergency-item">
+                            <strong>Crisis Text Line</strong>
+                            <span>Text HOME to 741741</span>
+                        </div>
+                        <div class="emergency-item">
+                            <strong>Emergency Services</strong>
+                            <a href="tel:911" class="emergency-link">911</a>
+                        </div>
+                    </div>
+                    <div class="emergency-actions">
+                        <button class="btn btn--primary btn--full-width" onclick="app.startEmergencyChat()">🗨️ Start Crisis Chat</button>
+                        <button class="btn btn--outline btn--full-width" onclick="app.findNearestER()">🏥 Find Nearest ER</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p id="loadingText">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <span class="toast-icon">✅</span>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- Floating Action Button for Emergency -->
+    <div class="fab-container">
+        <button class="fab emergency-fab" onclick="app.showEmergencyModal()" title="Emergency Support">
+            <span>🆘</span>
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

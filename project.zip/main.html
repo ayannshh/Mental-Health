@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TikTok - Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="bg-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-md z-50 p-4 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2.19c-1.7-.045-2.678-1.001-3.64-1.758-.952-.752-1.597-1.56-1.928-2.31z"/>
+                    <path d="M12 1.556c.645.723 1.24 1.555 1.77 2.457.53 1.101.808 2.347.808 3.545 0 2.5-1.5 4.5-4.5 4.5-2.071 0-3.71-.942-4.434-2.435A5.05 5.05 0 0 1 4 9.55a5.05 5.05 0 0 1-1.006-2.983 5.05 5.05 0 0 1 2.373-4.166C6.363 1.848 7.643 1 9 1v2.167c-1.02.042-1.83.42-2.438.963-.678.58-1.12 1.354-1.37 2.226-.24.82-.24 1.64.04 2.35.28.71 1.14 1.84 2.83 1.84 1.59 0 2.57-.82 2.97-1.57.37-.7.25-1.45-.16-2.19z"/>
+                </svg>
+                <span class="font-extrabold text-2xl">MindEase</span>
+            </div>
+            <!-- Navigation -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold">
+        
+                <a href="chatBot/chat.html" class="header-btn">Chat with Ai</a>
+                <a href="Doctor/index.html" class="header-btn">Doctors</a>
+                <a href="Progress/index.html" class="header-btn">Progress</a>
+                <a href="about/about.html" class="header-btn">About us</a>
+                
+            </nav>
+            <!-- Watch Button -->
+            <a href="login/login.html" class="text-sm font-semibold group">
+                SIGN UP
+                <span class="transition-transform duration-300 group-hover:translate-x-1 inline-block">→</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- This is the new container for the scroll-driven animation -->
+        <div id="scroll-sequence">
+            <div class="sticky-container">
+                
+                <!-- Hero Section (will be animated) -->
+                <section id="hero-section-sticky" class="px-4">
+                     <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">Our mission is to inspire creativity and bring joy and happines in your life.</h1>
+                     <p class="mt-8 max-w-2xl mx-auto text-lg text-gray-600">
+                        Your Digital Mental Health Companion
+                    </p>
+                    <div class="cta-button">
+                        <a href="#get-started" class="get-started-btn">Get Started</a>
+                      </div>
+                </section>
+
+               
+                  
+
+                <!-- Scrolling Video Gallery (will be animated) -->
+                <section id="video-gallery-sticky" class="py-12">
+                     <div class="scroller" data-direction="left" data-speed="slow">
+                        <div class="scroller__inner">
+                             <!-- Videos. Swapped for more reliable sources -->
+                            <video class="scroller-card" src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" autoplay loop muted playsinline></video>
+                            <video class="scroller-card" src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" autoplay loop muted playsinline></video>
+                            <video class="scroller-card" src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" autoplay loop muted playsinline></video>
+                            <video class="scroller-card" src="https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" autoplay loop muted playsinline></video>
+                            <video class="scroller-card" src="https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" autoplay loop muted playsinline></video>
+                            <video class="scroller-card" src="https://storage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4" autoplay loop muted playsinline></video>
+                             <!-- Duplicates for seamless loop -->
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Section 3: Impact (Original sections are now below the animation) -->
+        <section class="py-20 md:py-32 text-center px-4">
+            <p class="text1">Our Impact</p>
+            <div id="impact-number" class="text-7xl md:text-9xl font-extrabold my-4 reveal" data-target-value="12.2">
+                0
+            </div>
+            <p class="text1">Found There Way Of Living Life</p>
+        </section>
+
+        <!-- Section 4: Hashtags (Yellow) -->
+        <section class="bg-tiktok-yellow py-20 md:py-32 px-4">
+            <div class="max-w-5xl mx-auto text-center">
+                <p class="text-lg reveal">It’s okay to not be okay — we’re here for you.</p>
+                <div class="my-8 space-y-2 reveal">
+                    <h2 class="text-5xl md:text-7xl font-extrabold">#BookTok</h2>
+                    <h2 class="text-5xl md:text-7xl font-extrabold">#LearnOnTikTok</h2>
+                    <h2 class="text-5xl md:text-7xl font-extrabold">#GamingOnTikTok</h2>
+                    <h2 class="text-5xl md:text-7xl font-extrabold">#FoodTok</h2>
+                </div>
+                <p class="text-lg reveal">it's about the joy of uncovering what you didn't realize you were missing.</p>
+            </div>
+        </section>
+
+        <!-- NEW: Horizontal Scroll Container -->
+        <div id="horizontal-scroll-area">
+            <div id="horizontal-sticky-wrapper">
+                <div id="horizontal-track">
+                    <!-- Section 5: Community (Cyan) -->
+                    <section class="horizontal-section bg-tiktok-cyan">
+                        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                            <div class="content-card is-not-in-view-left">
+                                <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">Talk to Someone Who Listens You Anytime, Anywhere Whene You Need Help.</h2>
+                                <p class="mt-6 text-gray-700">Our AI chatbot is trained to understand your emotions and guide you towards positivity and balance.</p>
+                                <a href="#" class="mt-6 inline-block font-semibold group">
+                                    Start Chatting Now
+                                    <span class="transition-transform duration-300 group-hover:translate-x-1 inline-block">→</span>
+                                </a>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 content-card is-not-in-view-left" style="transition-delay: 0.2s;">
+                                <!-- REPLACED with videos -->
+                                <video class="rounded-2xl" src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" autoplay loop muted playsinline></video>
+                                <video class="rounded-2xl mt-8" src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 6: Privacy (Blue) -->
+                    <section class="horizontal-section bg-tiktok-blue">
+                         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                             <div class="grid grid-cols-2 gap-4 md:order-last content-card is-not-in-view-right" style="transition-delay: 0.2s;">
+                                <!-- REPLACED with videos -->
+                                <video class="rounded-2xl" src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" autoplay loop muted playsinline></video>
+                                <video class="rounded-2xl mt-8" src="https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="content-card is-not-in-view-right">
+                                <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">Track Your Mental Wellness Journey With Us.</h2>
+                                <p class="mt-6 text-gray-700">Visualize your daily moods, habits, and improvements with beautiful progress charts.</p>
+                                <a href="#" class="mt-6 inline-block font-semibold group">
+                                    View Your Progress
+                                    <span class="transition-transform duration-300 group-hover:translate-x-1 inline-block">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-white py-16 px-4 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 text-sm">
+             <!-- Column 1 -->
+            <div class="space-y-4">
+                <h3 class="font-bold">Company</h3>
+                <a href="#" class="block text-gray-600 hover:underline">About</a>
+                <a href="#" class="block text-gray-600 hover:underline">Newsroom</a>
+                <a href="#" class="block text-gray-600 hover:underline">Careers</a>
+                <a href="#" class="block text-gray-600 hover:underline">Contact</a>
+            </div>
+             <!-- Column 2 -->
+            <div class="space-y-4">
+                <h3 class="font-bold">Programs</h3>
+                <a href="#" class="block text-gray-600 hover:underline">TikTok for Good</a>
+                <a href="#" class="block text-gray-600 hover:underline">TikTok Creator Academy</a>
+            </div>
+             <!-- Column 3 -->
+            <div class="space-y-4">
+                <h3 class="font-bold">Resources</h3>
+                <a href="#" class="block text-gray-600 hover:underline">Help Center</a>
+                <a href="#" class="block text-gray-600 hover:underline">Safety Center</a>
+                <a href="#" class="block text-gray-600 hover:underline">Privacy Center</a>
+            </div>
+            <!-- Column 4 -->
+            <div class="space-y-4">
+                <h3 class="font-bold">Social</h3>
+                <a href="#" class="block text-gray-600 hover:underline">TikTok</a>
+                <a href="#" class="block text-gray-600 hover:underline">LinkedIn</a>
+                <a href="#" class="block text-gray-600 hover:underline">YouTube</a>
+            </div>
+            <!-- Column 5 -->
+            <div class="space-y-4">
+                 <h3 class="font-bold">Language</h3>
+                 <a href="#" class="block text-gray-600 hover:underline">English (US)</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
